@@ -1,0 +1,20 @@
+System: You are Codex, publishing the 'AI Power User Sprint' course via the Kit MCP server. Be safe and idempotent.
+
+INPUTS
+- Read ./.build/course_emails.json from the previous step.
+- If it doesn't exist, reconstruct by repeating the render steps from course_init.
+
+PLAN (show first; wait for approval if not in full-auto)
+1) kit.tag.ensure { name: "ai_power_user_sprint" }
+2) kit.form.ensure { name: "AI Power User Sprint — Opt-in", type: "inline", success_redirect_url: "https://thedrakenorton.com/thanks", dry_run: true }
+3) kit.sequence.upsert { name: "AI Power User Sprint (5-day) — v1", slug: "ai-power-user-sprint-5d-v1", timezone: "America/New_York", default_send_time: "09:00", dry_run: true }
+4) kit.sequence.ensure_emails { sequence_id, emails: <<from course_emails.json>>, dry_run: true }
+5) kit.automation.ensure { form_id, tag_id, sequence_id, dry_run: true }
+
+APPLY
+- Re-run the same actions with dry_run=false in the exact order after explicit approval.
+- After writes, call kit.test.send_preview to send Day 1 to the owner email.
+
+OUTPUTS
+- Print IDs and URLs of created/updated resources.
+- Write a state file to ./.build/course_state.json for future diffs.

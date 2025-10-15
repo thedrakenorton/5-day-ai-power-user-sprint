@@ -1,0 +1,20 @@
+# ~/.codex/config.toml — sample
+# Sign into Codex CLI with your ChatGPT account first: `codex`
+# Then wire up your Kit MCP server here.
+
+model = "gpt-5-codex"
+model_reasoning_effort = "medium"
+
+[mcp_servers.kit]
+# Replace with your actual server executable/entrypoint:
+command = "/usr/local/bin/kit-mcp-server"
+args = []
+
+# Environment passed to the MCP server process
+[mcp_servers.kit.env]
+KIT_API_KEY = "${KIT_API_KEY}"
+KIT_API_SECRET = "${KIT_API_SECRET}"
+
+# Optional: increase tool call timeouts (ms)
+[mcp]
+tool_call_timeout_ms = 120000

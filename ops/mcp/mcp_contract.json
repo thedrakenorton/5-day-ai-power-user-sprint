@@ -1,0 +1,236 @@
+{
+  "name": "kit-mcp-contract",
+  "version": "1.0",
+  "tools": [
+    {
+      "name": "kit.tag.ensure",
+      "description": "Ensure a tag exists by name (idempotent). Returns tag_id.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "tag_id": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    {
+      "name": "kit.form.ensure",
+      "description": "Ensure a form/landing page exists. Returns form_id.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "inline",
+              "modal",
+              "landing"
+            ]
+          },
+          "success_redirect_url": {
+            "type": "string"
+          },
+          "dry_run": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "form_id": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    {
+      "name": "kit.sequence.upsert",
+      "description": "Create or update an email sequence. Returns sequence_id.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "timezone": {
+            "type": "string",
+            "default": "America/New_York"
+          },
+          "default_send_time": {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$"
+          },
+          "dry_run": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "sequence_id": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    {
+      "name": "kit.sequence.ensure_emails",
+      "description": "Create/update the set of emails in a sequence by position/order.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "sequence_id": {
+            "type": "integer"
+          },
+          "emails": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "position": {
+                  "type": "integer"
+                },
+                "subject": {
+                  "type": "string"
+                },
+                "preheader": {
+                  "type": "string"
+                },
+                "html": {
+                  "type": "string"
+                },
+                "send_offset_days": {
+                  "type": "integer"
+                },
+                "send_time": {
+                  "type": "string",
+                  "pattern": "^\\d{2}:\\d{2}$"
+                }
+              },
+              "required": [
+                "position",
+                "subject",
+                "html"
+              ]
+            }
+          },
+          "dry_run": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "required": [
+          "sequence_id",
+          "emails"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "updated": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    {
+      "name": "kit.automation.ensure",
+      "description": "Ensure automation exists: on form submit, add tag, subscribe to sequence.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "form_id": {
+            "type": "integer"
+          },
+          "tag_id": {
+            "type": "integer"
+          },
+          "sequence_id": {
+            "type": "integer"
+          },
+          "dry_run": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "required": [
+          "form_id",
+          "sequence_id"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "automation_id": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    {
+      "name": "kit.test.send_preview",
+      "description": "Send a preview email to an address for a given sequence email position.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "sequence_id": {
+            "type": "integer"
+          },
+          "position": {
+            "type": "integer"
+          },
+          "to": {
+            "type": "string"
+          },
+          "dry_run": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "required": [
+          "sequence_id",
+          "position",
+          "to"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "notes": "Servers can map these tool names to Kit v3 or v4 API endpoints internally. All writes should be idempotent."
+}

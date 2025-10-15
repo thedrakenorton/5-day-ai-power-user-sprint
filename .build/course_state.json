@@ -1,0 +1,48 @@
+{
+  "account": {
+    "id": 2426597,
+    "name": "Drake | AI",
+    "plan_type": "free",
+    "primary_email_address": "thedrakenorton@gmail.com",
+    "created_at": "2025-09-13T19:59:38Z",
+    "timezone": {
+      "name": "America/New_York",
+      "friendly_name": "Eastern Time (US & Canada)",
+      "utc_offset": "-05:00"
+    }
+  },
+  "tag": {
+    "name": "ai_power_user_sprint",
+    "id": 11616534
+  },
+  "form": {
+    "name": "AI Power User Sprint — Opt-in",
+    "id": null
+  },
+  "sequence": {
+    "name": "AI Power User Sprint (5-day) — v1",
+    "id": null
+  },
+  "broadcast_drafts": [
+    {
+      "subject": "Day 1 — Set up ChatGPT + ship “Hello World”",
+      "broadcast_id": 21368506
+    },
+    {
+      "subject": "Day 2 — Lock your Focus Brief in 10–15 minutes",
+      "broadcast_id": 21368507
+    },
+    {
+      "subject": "Day 3 — Turn your brief into real copy",
+      "broadcast_id": 21368508
+    },
+    {
+      "subject": "Day 4 — Build your page (mobile‑first)",
+      "broadcast_id": 21368509
+    },
+    {
+      "subject": "Day 5 — Voice, polish & publish plan",
+      "broadcast_id": 21368510
+    }
+  ]
+}
