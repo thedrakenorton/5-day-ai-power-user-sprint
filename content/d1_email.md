@@ -1,36 +1,86 @@
-﻿---
+---
 id: d1
 position: 1
-subject: "Day 1 â€” Set up ChatGPT + ship â€œHello Worldâ€"
-preheader: "Create your Project, flip the right switches, ship a tiny win."
+subject: "Day 1 — Set up ChatGPT + ship “Hello World”"
+preheader: "No video required — follow the 15‑minute written steps."
 send_offset_days: 0
 send_time: "09:00"
 timezone: "America/New_York"
-video_url: "{{{{VIDEO_D1_URL}}}}"
+video_url: "{{VIDEO_D1_URL}}"
 ---
-# Day 1 â€” Stop Overthinking â†’ Set Up + â€œHello Worldâ€
 
-**Hey {{ subscriber.first_name | default: "friend" }} â€”** today weâ€™ll wire up your environment and ship a tiny win so momentum is real.
+# Day 1 — Stop Overthinking → Setup + “Hello World” (15–20 min)
 
-**â–¶ï¸ Watch (optional):** [Open the Day 1 video]({{{VIDEO_D1_URL}}})
+**Skip the video if you want.** This written lesson is complete on its own. The video (when added) will just mirror the steps.
 
-**What youâ€™ll do (15â€“20 min)**  
-- Create a **ChatGPT Project** and set **Project Instructions**  
-- Turn on **Custom Instructions** and (optional) **Memory**  
-- Open **Canvas** and paste a tiny `Hello World` page  
-- Save 3 artifacts to your project files
+**TL;DR (30s)**
+- Create a **ChatGPT Project** and set **Project Instructions**.
+- Enable **Custom Instructions**; **Memory** is optional (you control it).
+- Open **Canvas**, generate a tiny **Hello World** page, and save three artifacts.
 
-## Materials
-**Copy/paste into ChatGPT**
+---
 
-```text
-MINE â€” Confirm weâ€™re in my â€œMy Websiteâ€ Project + Canvas is open (desktop recommended). Ask if I prefer desktop or mobile.
-CRAFT â€” Generate a minimal index.html that says â€œHello, Worldâ€ in large text with a CTA to #start; mobileâ€‘first.
-REFINE â€” Add smooth-scroll and clean spacing. Paste as page.html and also create project_readme.md and day1_seed.md.
+## 1) Turn on the right switches (3–5 min)
+
+1. **Create a Project** named `My Website`.  
+2. **Add Project Instructions** (paste the block below).  
+3. **Custom Instructions (global):** enable and paste the block below.  
+4. **Memory (optional):** enable only if you want ChatGPT to recall preferences.  
+5. **Canvas:** open a Canvas tab in this project (desktop recommended).
+
+**Paste → Project Instructions**
 ```
-Save these files today:
-- `project_readme.md` (2â€“3 lines on your setup)  
-- `day1_seed.md` (audience, oneâ€‘line promise, desired CTA)  
-- `page.html` (tiny page you can preview)
+We work in Mine → Craft → Refine (MCR). For each day:
+1) Create/append a “L[lesson]-Checklist” in Canvas.
+2) Ask first (Mine), then build (Craft), then tighten (Refine).
+3) Save artifacts with exact filenames AND paste contents inline for download.
+Quality bars: specific > vague, proof > claims, ship > perfect.
+```
+
+**Paste → Global Custom Instructions**
+```
+Collaborative style: friendly, concrete, ask when unsure. Keep replies tight with a clear next step.
+Default loop: Mine → Craft → Refine. Writing-first. Offer phrasing options A/B/C.
+Canvas & files: paste final artifacts as fenced code blocks with exact filenames.
+Tone: plain-spoken, concrete, no hype.
+```
+
+---
+
+## 2) Do the work (8–10 min)
+
+Paste the prompt below into your Canvas chat:
+
+```
+MINE — Confirm we’re in my “My Website” Project + Canvas is open (desktop recommended). Ask if I prefer desktop or mobile for today.
+CRAFT — Generate a minimal mobile-first HTML page that says “Hello, World” in large type and has one CTA button that scrolls to #start. Name it page.html.
+REFINE — Add smooth-scroll JS and comfortable spacing for mobile. Paste page.html as a full file. Also create:
+- project_readme.md (2–3 lines on my setup)
+- day1_seed.md (audience, one-line promise, desired CTA)
+```
+
+**Pro tip:** After it pastes `page.html`, click **Download** (from Canvas code block), then **Upload to Project Files** to persist it.
+
+---
+
+## 3) Ship today’s artifacts
+
+- `project_readme.md` — 2–3 lines on your environment and goal  
+- `day1_seed.md` — audience, one‑sentence promise, target CTA  
+- `page.html` — the tiny page to prove the loop works
+
+---
+
+## Troubleshooting
+
+- *The page looks weird on mobile.* Ask: “Do a mobile spacing pass and increase body line-height slightly.”  
+- *I can’t find Canvas.* Use desktop web; inside a chat, click **Canvas**.  
+- *Memory weirdness.* Turn it off; this course works without Memory.
+
+---
+
+## Acceptance
+
+- Canvas open, `page.html` pasted, three artifacts saved/uploaded.
 
 **Reply keyword:** `STARTED`
