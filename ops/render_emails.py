@@ -99,6 +99,9 @@ def build_emails(root: Path) -> List[EmailSpec]:
         raw = _read_text_smart(md_path)
         fm, body_md = parse_front_matter(raw)
 
+        # Normalize any single/triple/quad-brace VIDEO token usage to Liquid double braces
+        body_md = re.sub(r"\{+VIDEO_D([1-5])_URL\}+", r"{{VIDEO_D\1_URL}}", body_md)
+
         # Required fields with defaults
         position = int(fm.get("position") or 0)
         subject = str(fm.get("subject") or "")
